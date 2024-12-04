@@ -113,6 +113,7 @@ function analyzeCode(changedFiles, prDetails) {
 function createPrompt(changedFiles, prDetails) {
     core.info("Creating prompt for AI...");
     const problemOutline = `Your task is to review pull requests (PR). Instructions:
+- Please answer in Korean.
 - Provide the response in following JSON format:  {"comments": [{"file": <file name>,  "lineNumber":  <line_number>, "reviewComment": "<review comment>"}]}
 - DO NOT give positive comments or compliments.
 - DO NOT give advice on renaming variable names or writing more descriptive variables.
@@ -123,6 +124,7 @@ function createPrompt(changedFiles, prDetails) {
 ${REVIEW_PROJECT_CONTEXT
         ? `- Additional context regarding this PR's project: ${REVIEW_PROJECT_CONTEXT}`
         : ""}
+- You should ensure that all answers are in Korean.
 - IMPORTANT: NEVER suggest adding comments to the code.
 - IMPORTANT: Evaluate the entire diff in the PR before adding any comments.
 
