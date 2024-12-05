@@ -197,9 +197,9 @@ async function getAIResponse(
       throw new Error("OpenAI API returned an invalid response");
     }
 
-    core.info("Received response from OpenAI API.");
+    // core.info("Received response from OpenAI API.");
     const res = response.choices[0].message?.content?.trim() || "{}";
-
+    core.info(`Received response from OpenAI API. ${res}`);
     // Remove any markdown formatting and ensure valid JSON
     const jsonString = res.replace(/^```json\s*|\s*```$/g, "").trim();
 
