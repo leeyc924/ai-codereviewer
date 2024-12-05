@@ -115,7 +115,7 @@ function createPrompt(changedFiles: File[], prDetails: PRDetails): string {
 - DO NOT give positive comments or compliments.
 - DO NOT give advice on renaming variable names or writing more descriptive variables.
 - Provide comments and suggestions ONLY if there is something to improve, otherwise return an empty array.
-- Provide at the end of the comment with an improved code example.
+- Provide at the end of the comment with prev code and an improved code example.
 - Provide at most ${REVIEW_MAX_COMMENTS} comments. It's up to you how to decide which comments to include.
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
