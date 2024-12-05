@@ -118,7 +118,7 @@ function createPrompt(changedFiles, prDetails) {
 - DO NOT give positive comments or compliments.
 - DO NOT give advice on renaming variable names or writing more descriptive variables.
 - Provide comments and suggestions ONLY if there is something to improve, otherwise return an empty array.
-- Provide comments with improved code example.
+- Provide at the end of the comment with an improved code example.
 - Provide at most ${REVIEW_MAX_COMMENTS} comments. It's up to you how to decide which comments to include.
 - Write the comment in GitHub Markdown format.
 - Use the given description only for the overall context and only comment the code.
@@ -187,8 +187,9 @@ function getAIResponse(prompt) {
             if (!response.choices || response.choices.length === 0) {
                 throw new Error("OpenAI API returned an invalid response");
             }
-            core.info("Received response from OpenAI API.");
+            // core.info("Received response from OpenAI API.");
             const res = ((_b = (_a = response.choices[0].message) === null || _a === void 0 ? void 0 : _a.content) === null || _b === void 0 ? void 0 : _b.trim()) || "{}";
+            core.info(`Received response from OpenAI API. ${res}`);
             // Remove any markdown formatting and ensure valid JSON
             const jsonString = res.replace(/^```json\s*|\s*```$/g, "").trim();
             try {
